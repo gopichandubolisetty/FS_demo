@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme{
+    --font-heading:"Montserrat", sans-serif;
+    --font-body:"Roboto", sans-serif;
+    --font-para:"Inter", sans-serif;
+    --animate-ani1 : ani1 4s ease-in infinite alternate ;
+    --animate-ani2 : ani2 6s ease-in infinite alternate;
+    --animate-animebor : bor 4s linear infinite;
+
+    @keyframes ani1 {
+        from{
+            transform: translate(20%,20%);
+        }to{
+            transform: translate(0%,10%);
+        }
+    }
+
+   @keyframes bor {
+        0% {
+            border: 3px solid transparent;
+            border-top: 3px solid blue;
+        }
+        25% {
+            border: 3px solid transparent;
+            border-right: 3px solid blue;
+        }
+        50% {
+            border: 3px solid transparent;
+            border-bottom: 3px solid blue;
+        }
+        75% {
+            border: 3px solid transparent;
+            border-left: 3px solid blue;
+        }
+        100% {
+            border: 3px solid transparent;
+            border-top: 3px solid blue;
+        }
+    }
+
+
+    @keyframes ani2{
+        from{
+            transform: translate(-5%,20%);
+        }to{
+            transform: translate(50%,-20%);
+        }
+    }
+}
+
+@layer base{
+    body{
+        @apply bg-black text-white m-0 p-0 overflow-x-hidden;
+    }
+}
+
+@layer components{
+    .max-container{
+        @apply max-w-[1600px]
+    }
+
+    .btn{
+        @apply bg-white font-semibold font-heading rounded-3xl px-2.5 py-1.5 text-sm text-black overflow-x-hidden
+    }
+
+    .pricebtn {
+        @apply bg-white text-black text-[1rem] font-para px-[5rem] py-4 rounded-full relative overflow-hidden transition-colors ease-in z-0;
+    }
+
+    .pricebtn::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0066ff;
+    border-radius: 80%;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+    }
+
+    .pricebtn:hover {
+    color: white; /* text turns white */
+    }
+
+    .pricebtn:hover::after {
+    top: 0;
+    border-radius: 10%;
+    }
+
+}
+
+
+
